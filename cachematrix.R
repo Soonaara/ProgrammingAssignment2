@@ -7,8 +7,11 @@
 
 ## Write a short comment describing this function
 
-##makeCacheMatrix creates a special matrix, which is really a list containing a function to
-##1.set value of the vector; 2.get the value of the vector; 3.set the value of the mean; 4.get the value of the mean
+##makeCacheMatrix creates a special matrix, which is really a list containing a functions to
+##1.set value of the matix;
+##2.get the value of the matrix;
+##3.set the value of the mean;
+##4.get the value of the mean
 
 makeCacheMatrix <- function(x = matrix()){
   i <- NULL
@@ -30,7 +33,7 @@ makeCacheMatrix <- function(x = matrix()){
 
 ## Computes the inverse of created matrix.First checks if the inverse has already been calculated.
 ## If so, it gets the inverse from the cache and skips the computation. Otherwise calculates and sets the value
-## in the cache via setinverse function.
+## calculates the inverse.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -41,9 +44,9 @@ cacheSolve <- function(x, ...) {
   }
   data <- x$get()
   i <- solve(data, ...)
-  x$setinverse(i)
+  x$setinverse(i)     ## sets the value of the inverse in the cache
   i
+  return(i)
 }
-#B <- matrix(c(5,8,9,3),2,2)   ##input matrix
-#B1 <- makeCacheMatrix(B)
-#cacheSolve(B1)
+
+
